@@ -1,6 +1,7 @@
 public class Punto3 {
     public static void main(String[] args) {
         double[] arr = new double[]{1, 2, 3, 4, 5};
+        System.out.println("Última prueba en el punto 3...");
         System.out.println(prom(arr, 0));
     }
 
