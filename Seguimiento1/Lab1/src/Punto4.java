@@ -2,7 +2,7 @@ public class Punto4 {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 2, 8, 14, 89};
-        System.out.println(getIndex(arr, 9, 0));
+        System.out.println(getIndex(arr, 0, 0));
     }
 
     public static int getIndex(int[] arr, int num, int i){
