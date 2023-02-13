@@ -38,40 +38,43 @@ public class LinkedList {
         if(head != null){
             head.setPlayer(player);
         }
+
     }
 
-    public void print(){
+    /*public void print(){
         print(head, 1);
-    }
+    }*/
 
-    public void print(Node current, int i){
+
+
+    /*public void print(Node current){
         if(current == null){
             return;
         }
-        if(current.getName() != i){
-            System.out.print("[" + current.getName() + "]" + " ");
-            print(current.getNext(), i);
-        }else{
-            System.out.print("[" + current.getName() + "*]" + " ");
-            print(current.getNext(), i);
+
+    }*/
+
+    /*public void printNodePlayer(Node current, int i){
+        if(current.getName() == i){
+            System.out.println("[" + current.getName() + "*]" + " ");
         }
-    }
+    }*/
 
     public void answerQuestion(){
-        answerQuestion(head, 1);
+        answerQuestion(head);
     }
 
-    private void answerQuestion(Node current, int i){
-        if(current == null){
-            return;
-        }else{
-            reader.nextLine();
-            print(current, i);
-            current = head;
-            current = current.getNext();
+    private String answerQuestion(Node current){
+        if(current == tail){
             current.setPlayer(current.getPrevious().getPlayer());
             current.getPrevious().setPlayer(null);
-            answerQuestion(current.getNext(), i+1);
+            return current.printNodePlayer();
+        }else{
+            reader.nextLine();
+            current.getNext().setPlayer(current.getPlayer());
+            current.setPlayer(null);
+            return current.printNodePlayer();
+            answerQuestion(current.getNext());
         }
     }
 

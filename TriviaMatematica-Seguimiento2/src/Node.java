@@ -4,6 +4,7 @@ public class Node {
     private Node previous;
     private Player player;
     private Problem problem;
+    private QuestionStatus status;
 
     public Node() {
         this.name = 0;
@@ -46,5 +47,27 @@ public class Node {
 
     public void setProblem(Problem problem) {
         this.problem = problem;
+    }
+
+    public String printNodePlayer(){
+        String txt = "[ " + name + " ";
+        if (status != QuestionStatus.PASO){
+            txt = "[ " + name + " ";
+            if(player != null){
+                txt += "*";
+            }else{
+                switch (status){
+                    case CORRECTA:
+                        txt += "+";
+                        break;
+                    case INCORRECTA:
+                        txt += "x";
+                        break;
+                }
+            }
+
+        }
+        return txt += " ]";
+        //printNodePlayer();
     }
 }
