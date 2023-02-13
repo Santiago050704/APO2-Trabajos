@@ -1,19 +1,19 @@
 import java.util.Scanner;
 public class Main {
-    private Scanner input;
+    private static Scanner input = new Scanner(System.in);
     private static LinkedList linkedList;
 
-    public Main(){
-        input = new Scanner(System.in);
-    }
     public static void main(String[] args) {
-        Main main = new Main();
+        initLinkedList();
+    }
+    public static void initLinkedList(){
         System.out.println("Ingrese el nombre del jugador.");
-        String name = main.input.next();
-        System.out.println("Ingrese la cantidad de preguntas que va a responder.");
-        int totalQuestionsChosed = main.input.nextInt();
+        String name = input.next();
+        System.out.println("Ingrese la cantidad de preguntas que quiere responder.");
+        int totalQuestionsChosed = input.nextInt();
         linkedList = new LinkedList(name, totalQuestionsChosed);
-        main.linkedList.print();
+        //linkedList.print();
+        linkedList.answerQuestion();
     }
 
 }

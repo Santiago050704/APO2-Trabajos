@@ -5,12 +5,8 @@ public class Node {
     private Player player;
     private Problem problem;
 
-    public Node(/*int name, Node next, Node previous, Player player, Problem problem*/) {
-        /*this.name = name;
-        this.next = next;
-        this.previous = previous;
-        this.player = player;
-        this.problem = problem;*/
+    public Node() {
+        this.name = 0;
     }
 
     public int getName() {
