@@ -6,8 +6,17 @@ public class Node {
     private Problem problem;
     private QuestionStatus status;
 
+    public QuestionStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(QuestionStatus status) {
+        this.status = status;
+    }
+
     public Node() {
         this.name = 0;
+        this.problem = new Problem();
     }
 
     public int getName() {
@@ -56,14 +65,17 @@ public class Node {
             if(player != null){
                 txt += "*";
             }else{
-                switch (status){
-                    case CORRECTA:
-                        txt += "+";
-                        break;
-                    case INCORRECTA:
-                        txt += "x";
-                        break;
+                if (status != null){
+                    switch (status){
+                        case CORRECTA:
+                            txt += "+";
+                            break;
+                        case INCORRECTA:
+                            txt += "x";
+                            break;
+                    }
                 }
+
             }
 
         }

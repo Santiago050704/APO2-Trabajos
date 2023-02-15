@@ -38,43 +38,49 @@ public class LinkedList {
         if(head != null){
             head.setPlayer(player);
         }
-
     }
 
-    /*public void print(){
-        print(head, 1);
-    }*/
-
-
-
-    /*public void print(Node current){
-        if(current == null){
-            return;
+    public String printLinkedList(){
+        return printLinkedList(head);
+    }
+    private String printLinkedList(Node current){
+        String msj = "";
+        if(current != null){
+            msj += current.printNodePlayer() + printLinkedList(current.getNext());
         }
-
-    }*/
-
-    /*public void printNodePlayer(Node current, int i){
-        if(current.getName() == i){
-            System.out.println("[" + current.getName() + "*]" + " ");
-        }
-    }*/
+        return msj;
+    }
 
     public void answerQuestion(){
         answerQuestion(head);
     }
 
-    private String answerQuestion(Node current){
+    private void answerQuestion(Node current){
+        System.out.println(printLinkedList());
+        validateAnswer(current.getNext());
         if(current == tail){
             current.setPlayer(current.getPrevious().getPlayer());
             current.getPrevious().setPlayer(null);
-            return current.printNodePlayer();
         }else{
             reader.nextLine();
             current.getNext().setPlayer(current.getPlayer());
             current.setPlayer(null);
-            return current.printNodePlayer();
             answerQuestion(current.getNext());
+
+        }
+    }
+
+    public void validateAnswer(Node node){
+        System.out.println(node.getProblem().getProblem());
+        int response = reader.nextInt();
+        if(response != -1){
+            if(response != node.getProblem().getAnswer()){
+                node.setStatus(QuestionStatus.INCORRECTA);
+            }else{
+                node.setStatus(QuestionStatus.CORRECTA);
+            }
+        }else{
+            node.setStatus(QuestionStatus.PASO);
         }
     }
 
