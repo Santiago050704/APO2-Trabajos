@@ -1,3 +1,4 @@
+
 public class Node {
     private String key;
     private Node right;
